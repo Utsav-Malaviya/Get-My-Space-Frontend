@@ -58,7 +58,7 @@ const PrePlanSection = () => {
     const fetchMalls = async () => {
       try {
         setMallsLoading(true)
-        const response = await fetch(`${process.env.BACKEND_URL}/api/malls?live=true`)
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/malls?live=true`)
         const data = await response.json()
         
         if (!response.ok) {

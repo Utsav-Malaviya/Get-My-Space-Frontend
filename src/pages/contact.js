@@ -80,7 +80,7 @@ const ContactSection = () => {
     
     try {
       // Send form data to backend API
-      const response = await fetch(`${process.env.BACKEND_URL}/api/contact`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

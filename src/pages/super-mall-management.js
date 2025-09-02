@@ -32,7 +32,7 @@ const SuperMallManagement = () => {
   const fetchMalls = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.BACKEND_URL}/api/super/malls`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/super/malls`, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -94,7 +94,7 @@ const SuperMallManagement = () => {
   const handleUpdateMall = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/super/malls/${editingMall._id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/super/malls/${editingMall._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -145,7 +145,7 @@ const SuperMallManagement = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/super/malls/${mallId}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/super/malls/${mallId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -164,7 +164,7 @@ const SuperMallManagement = () => {
 
   const handleToggleLive = async (mallId) => {
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/super/malls/${mallId}/toggle-live`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/super/malls/${mallId}/toggle-live`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -186,7 +186,7 @@ const SuperMallManagement = () => {
 
   const handleUpdateOffset = async (mallId, offsetData) => {
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/super/malls/${mallId}/offset`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/super/malls/${mallId}/offset`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

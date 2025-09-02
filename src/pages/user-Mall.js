@@ -17,7 +17,7 @@ const UserMall = () => {
   useEffect(() => {
     const fetchMalls = async () => {
       try {
-        const res = await fetch(`${process.env.BACKEND_URL}/api/malls`, { headers: { Accept: "application/json" } })
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/malls`, { headers: { Accept: "application/json" } })
         if (!res.ok) return
         const data = await res.json()
         setMallsData(Array.isArray(data) ? data : [])

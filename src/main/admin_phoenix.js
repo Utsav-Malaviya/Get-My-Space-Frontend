@@ -16,7 +16,7 @@ const AdminDashboardPhoenix = () => {
   useEffect(() => {
     const loadSessions = async () => {
       try {
-        const res = await fetch(`${process.env.BACKEND_URL}/api/parking?mall=Phoenix`, { headers: { Accept: 'application/json' } })
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/parking?mall=Phoenix`, { headers: { Accept: 'application/json' } })
         if (!res.ok) return
         const data = await res.json()
         const normalized = (Array.isArray(data) ? data : []).map((s) => ({

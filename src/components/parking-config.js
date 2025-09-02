@@ -16,7 +16,7 @@ const ParkingConfig = ({ mallId, mallName, onConfigUpdate }) => {
     const fetchConfig = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`${process.env.BACKEND_URL}/api/super/malls/${mallId}/parking-config`)
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/super/malls/${mallId}/parking-config`)
         if (response.ok) {
           const data = await response.json()
           setConfig(data.mall.parkingConfig)
@@ -39,7 +39,7 @@ const ParkingConfig = ({ mallId, mallName, onConfigUpdate }) => {
       setLoading(true)
       setMessage('')
       
-      const response = await fetch(`${process.env.BACKEND_URL}/api/super/malls/${mallId}/parking-config`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/super/malls/${mallId}/parking-config`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

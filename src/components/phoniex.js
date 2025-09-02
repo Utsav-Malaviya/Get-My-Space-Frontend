@@ -48,7 +48,7 @@ const Phoniex = () => {
   useEffect(() => {
     const fetchOccupancy = async () => {
       try {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/mall/occupancy?mall=Phoenix`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/mall/occupancy?mall=Phoenix`, {
           headers: { Accept: "application/json" },
         })
         if (!response.ok) return
