@@ -19,7 +19,7 @@ const AdminDashboardPalladium = () => {
   useEffect(() => {
     const loadSessions = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/parking?mall=Palladium%20Mall', { headers: { Accept: 'application/json' } })
+        const res = await fetch(`${process.env.BACKEND_URL}/api/parking?mall=Palladium%20Mall`, { headers: { Accept: 'application/json' } })
         if (!res.ok) return
         const data = await res.json()
         const normalized = (Array.isArray(data) ? data : []).map((s) => ({

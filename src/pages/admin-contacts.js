@@ -22,7 +22,7 @@ const AdminContacts = () => {
         ...(statusFilter && { status: statusFilter })
       });
 
-      const response = await fetch(`http://localhost:5000/api/contact?${params}`);
+      const response = await fetch(`${process.env.BACKEND_URL}/api/contact?${params}`);
       const data = await response.json();
 
       if (!response.ok) {
@@ -41,7 +41,7 @@ const AdminContacts = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const response = await fetch(`${process.env.BACKEND_URL}/api/contact/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const AdminContacts = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const response = await fetch(`${process.env.BACKEND_URL}/api/contact/${id}`, {
         method: 'DELETE'
       });
 

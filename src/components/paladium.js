@@ -15,7 +15,7 @@ const Paladium = () => {
   useEffect(() => {
     const fetchMallConfig = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/malls?live=true')
+        const response = await fetch(`${process.env.BACKEND_URL}/api/malls?live=true`)
         const malls = await response.json()
         const palladiumMall = malls.find(mall => 
           mall.name.toLowerCase().includes('palladium')
@@ -93,7 +93,7 @@ const Paladium = () => {
   useEffect(() => {
     const fetchOccupancy = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/mall/occupancy?mall=Palladium", {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/mall/occupancy?mall=Palladium`, {
           headers: { 'Accept': 'application/json' }
         })
         if (!response.ok) return
@@ -167,7 +167,7 @@ const Paladium = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/mall/occupancy?mall=Palladium", {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/mall/occupancy?mall=Palladium`, {
           headers: { 'Accept': 'application/json' }
         })
         if (!response.ok) return
@@ -188,7 +188,7 @@ const Paladium = () => {
 
   // Live updates via backend SSE
   useEffect(() => {
-    const es = new EventSource('http://localhost:5000/api/mall/occupancy/stream?mall=Palladium')
+    const es = new EventSource(`${process.env.BACKEND_URL}/api/mall/occupancy/stream?mall=Palladium`)
     const applyFromSlotArray = (slotArray) => {
       const occupied = new Set((slotArray || []).filter((p) => Array.isArray(p) && p[1] === 1).map((p) => String(p[0]).toUpperCase()))
       setParkingData((prev) => prev.map((spot) => ({

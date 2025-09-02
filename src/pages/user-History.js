@@ -24,7 +24,7 @@ const HistorySection = () => {
           setHistoryData([])
           return
         }
-        const res = await fetch(`http://localhost:5000/api/history?plates=${encodeURIComponent(plates.join(','))}`)
+        const res = await fetch(`${process.env.BACKEND_URL}/api/history?plates=${encodeURIComponent(plates.join(','))}`)
         if (!res.ok) {
           setHistoryData([])
           return
